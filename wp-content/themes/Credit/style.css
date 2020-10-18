@@ -1,0 +1,117 @@
+/*BASIC STYLES START*/
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: "Segoe UI","Roboto",sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 1200px;
+}
+/*BASIC STYLES END*/
+
+/*HEADER START*/
+.header{
+
+}
+
+.topbar{
+    width: 100%;
+    padding: 10px 0;
+    background: #f6f8f9;
+    font-size: 14px;
+    color: #67809d;
+    position: relative;
+    z-index: 1;
+}
+.recommend{
+    width: 100%;
+    color: #fff;
+    margin-top: 13px;
+    padding: 16px 0;
+    text-align: center;
+    font-size: 20px;
+    background: #2E8D2B;
+    z-index: 1;
+    position: relative;
+}
+.recommend-container::before{
+    content: url(/img/cash.png);
+    position: absolute;
+    left: 0;
+    bottom: -26px;
+    width: 70px;
+    height: 50px;
+}
+/*HEADER END*/
+main{
+    position: relative;
+    background: #f5f5f5;
+    min-height: 600px;
+}
+
+
+/*MAIN START*/
+/*SIDEBAR START*/
+.sidebar-sticky{
+    float: right;
+    width: 300px;
+    color: #ffbdbd;
+    will-change: min-height;
+}
+.inner-wrapper-sticky{
+    position: relative;
+}
+.sidebar-inner{
+    display: block;
+    padding: 20px;
+    top: 75px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0,0,0,.24);
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+/*SIDEBAR END*/
+/*MAIN CONTENT START*/
+.main-content{
+    min-height: 400px;
+    color: darkgrey;
+    float: left;
+    width: calc(100% - 330px);
+}
+
+
+
+/*MAIN CONTENT END*/
+/*MAIN END*/
+
+
+/*FOOTER START*/
+footer{
+    text-align: center;
+    background-color: #303B2D;
+    padding: 25px 0 20px 0;
+    color: #cdcdcd;
+}
+.vk-link{
+    color: #ffffff;
+}
+.copyrights{
+    color: #fff;
+    margin-top: 20px;
+}
+/*FOOTER END*/
