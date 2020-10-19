@@ -20,14 +20,14 @@
 </script>
 <div class="wrapper">
     <div class="header">
-       <div class="topbar">
+        <div class="topbar">
             <div class="container topbar-container">
                 <div class="topbar-left-text">
                     <p>❌ НЕ БЕРИТЕ ЗАЙМ, ЕСЛИ МОЖЕТЕ НЕ БРАТЬ</p>
                     <p>⚡ НЕСКОЛЬКО ЗАЯВОК = 100% ШАНСОВ НА ВЫДАЧУ</p>
                 </div>
             </div>
-       </div>
+        </div>
         <div class="recommend">
             <div class="container recommend-container">
                 <div class="recommend-inner-text">
