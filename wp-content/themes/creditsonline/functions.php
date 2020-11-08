@@ -179,11 +179,9 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 
-add_action('init', 'register_post_types');
-function register_post_types()
-{
+add_action('init', 'my_custom_init');
+function my_custom_init(){
     register_post_type('offer', [
-        'label' => null,
         'labels' => [
             'name' => 'Офферы', // основное название для типа записи
             'singular_name' => 'Оффер', // название для одной записи этого типа
@@ -210,17 +208,14 @@ function register_post_types()
         'rest_base' => null, // $post_type. C WP 4.7
         'menu_position' => 4,
         'menu_icon' => null,
-//'capability_type'   => 'post',
+        'capability_type'   => 'post',
 //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
 //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
         'hierarchical' => false,
         'supports' => [
             'title',
-            //'editor',
             'thumbnail',
             'custom-fields',
-            //'page-attributes',
-            //'post-formats'
         ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
         'taxonomies' => [],
         'has_archive' => true,
