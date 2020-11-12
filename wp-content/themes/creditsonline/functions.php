@@ -230,4 +230,45 @@ if (function_exists('add_image_size')) {
     add_image_size('offers-images', 165, 65, true);
 }
 
+add_action( 'wp_ajax_filter', 'offer_filtering' ); // wp_ajax_{ЗНАЧЕНИЕ ПАРАМЕТРА ACTION!!}
+add_action( 'wp_ajax_nopriv_filter', 'offer_filtering' );  // wp_ajax_nopriv_{ЗНАЧЕНИЕ ACTION!!}
+// первый хук для авторизованных, второй для не авторизованных пользователей
+
+function offer_filtering(){
+    $offer_sum = $_POST["offer_sum"];
+
+    $offer_time = $_POST["offer_time"];
+
+    $args = array('post_type' => 'offer');
+
+    $offers = get_posts($args);
+    $bad_loans =[];
+
+    foreach ($offers as $offer) {
+
+        $loan_time = explode("-", get_field('loan_time', $offer->ID));
+
+        $loan_sum = explode("-", get_field('loan_first_sum', $offer->ID));
+
+        if((int) $loan_time[0]  <= (int) $offer_time and (int) $loan_time[1]  >= (int) $offer_time and  (int) $loan_sum[0]  <= (int) $offer_sum and (int) $loan_sum[1]  >= (int) $offer_sum){
+            include 'offer.php';
+
+        }else{
+            $bad_loans[] = $offer;
+        }
+    }
+
+    echo "-----------------------------------------------------";
+
+    foreach ($bad_loans as $offer) {
+            include 'offer.php';
+            echo $loan_time[0] . "\n";
+            echo $offer_time . "\n";
+            echo $loan_time[1] . "\n";
+
+    }
+    wp_reset_postdata();
+
+    die; // даём понять, что обработчик закончил выполнение
+}
 

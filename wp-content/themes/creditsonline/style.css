@@ -64,12 +64,14 @@ body{
 	z-index: 1;
 	position: relative;
 }
-
+.recommend-inner-text{
+	position: relative;
+}
 .recommend-inner-text::before{
 	content: url(http://credit/wp-content/uploads/2020/11/cash.png);
 	position: absolute;
-	left: 1;
-	bottom: 0px;
+	left: 0px;
+	bottom: -10px;
 	width: 70px;
 	height: 50px;
 }
@@ -112,6 +114,75 @@ main{
 	position: relative;
 }
 
+
+.credit_calc {
+
+}
+
+.credit_calc * {
+	outline: 0;
+}
+
+.credit_calc_row {
+	margin-bottom: 35px;
+}
+
+.credit_calc_row.calc_term .calc_sum_value {
+	width: 32px;
+	padding: 0 40px 0 8px;
+}
+
+.calc_sum {
+
+}
+
+.calc_sum_label {
+	font-weight: 700;
+	color: #333;
+	font-size: 20px;
+	line-height: 31px;
+	height: 44px;
+	white-space: nowrap;
+}
+
+.calc_sum_value {
+	float: right;
+	width: 70px;
+	position: relative;
+	background-color: #f7f7f7;
+	padding: 0 32px 0 8px;
+	line-height: 0;
+	border-radius: 4px 4px 4px 4px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	border: 1px solid #ddd;
+}
+
+.calc_sum_value_suffix {
+	font-size: 13px;
+	line-height: 16px;
+	font-weight: 700;
+	color: #b8b8b8;
+	position: absolute;
+	top: 13px;
+	right: 5px;
+	pointer-events: none;
+}
+
+.calc_sum_value_input {
+	font-size: 24px;
+	line-height: 34px;
+	height: 34px;
+	position: relative;
+	z-index: 2;
+	color: #333;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background-color: transparent;
+	width: 100%;
+	font-weight: 700;
+	text-align: right;
+}
 /*SIDEBAR END*/
 /*MAIN CONTENT START*/
 .main-content{
