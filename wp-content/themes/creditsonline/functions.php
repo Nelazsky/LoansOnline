@@ -258,7 +258,7 @@ function offer_filtering(){
         }
     }
 
-    echo "-----------------------------------------------------";
+    echo " <div class=\"unavailable\">Результаты, не соответствующие условиям первого кредита</div>";
 
     foreach ($bad_loans as $offer) {
             include 'offer.php';
