@@ -7,7 +7,7 @@
         </div>
 
         <div class="main-content">
-            <div class="main-top-titles">
+            <div class="main-top clearfix">
                 <div>Только надёжные МФО с лиц. ЦБ</div>
                 <div>Рейтинг на ноябрь 2020 г.</div>
             </div>

@@ -25,3 +25,5 @@ node_modules/
 #idea directory
 
 .idea
+
+.wp-config.php

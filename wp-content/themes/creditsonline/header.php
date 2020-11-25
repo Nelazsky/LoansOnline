@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/wp-includes/css/dashicons.min.css" ENGINE="text/css">
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" >
+    <link href="<?= bloginfo('template_directory'); ?>/css/grid.css" rel="stylesheet" type="text/css" />
     <?php wp_head();?>
 </head>
 <body>

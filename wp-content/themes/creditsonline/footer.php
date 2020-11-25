@@ -1,4 +1,4 @@
-<footer>
+<div class="footer">
     <div class="container">
         <p>
             ❌ ВАЖНО
@@ -23,7 +23,7 @@
             ООО "ПРОФИТАТОР", ОГРН 5147746156718
         </div>
     </div>
-</footer>
+</div>
 </div>
 <?php wp_footer();?>
 </body>
