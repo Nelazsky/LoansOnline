@@ -16,7 +16,6 @@
         </p>
         <br>
         <p>
-            <b><a class="vk-link" href="https://qeqom.adsb4trk.com/click?multi_offer=8" target="_blank">тест Ссылка</a></b>
             <b><a class="vk-link" href="https://vk.com/micro_credits" target="_blank">Наша группа ВК</a></b>
         </p>
         <div class="copyrights">

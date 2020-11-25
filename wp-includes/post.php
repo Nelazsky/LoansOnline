@@ -2016,10 +2016,10 @@ function is_post_type_viewable( $post_type ) {
  */
 function get_posts( $args = null ) {
 	$defaults = array(
-		'numberposts'      => 5,
+		'numberposts'      => 50,
 		'category'         => 0,
 		'orderby'          => 'date',
-		'order'            => 'DESC',
+		'order'            => 'ASC',
 		'include'          => array(),
 		'exclude'          => array(),
 		'meta_key'         => '',

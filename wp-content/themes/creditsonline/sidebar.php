@@ -5,7 +5,7 @@
                 <div class="calc_sum">
                     <div class="calc_sum_value">
                         <div class="calc_sum_value_suffix">руб</div>
-                        <input type="text" class="calc_sum_value_input" data-calc="sum" value="<?= INITIAL_SUM ?>">
+                        <input type="text" class="calc_sum_value_input" data-calc="sum" value="5000">
                     </div>
                     <div class="calc_sum_label">
                         Сумма займа
@@ -26,7 +26,7 @@
                 <div class="calc_sum">
                     <div class="calc_sum_value">
                         <div class="calc_sum_value_suffix">дней</div>
-                        <input type="text" class="calc_sum_value_input" data-calc="term" value="<?= INITIAL_TERM ?>">
+                        <input type="text" class="calc_time_value_input " data-calc="term" value="30">
                     </div>
                     <div class="calc_sum_label">
                         Срок займа
@@ -59,8 +59,8 @@ jQuery(document).ready(function ($) {
             type: 'POST',
             data: {
                 "action" : "filter",
-                "offer_sum": $(".loan-input-sum").val(),
-                "offer_time": $(".loan-input-time").val()
+                "offer_sum": $(".calc_sum_value_input").val(),
+                "offer_time": $(".calc_time_value_input").val()
             }, // можно также передать в виде массива или объекта
             beforeSend: function( xhr ) {
 
@@ -71,17 +71,14 @@ jQuery(document).ready(function ($) {
             success: function( data ) {
 
                 $('.loan_wrapper').html(data)
-
-                // $('#misha_button').text('Отправить');
-                // alert( data );
             }
         });
     }
     updateOffer();
-    $(".loan-input-sum").on('input',function(){
+    $(".calc_sum_value_input").on('input',function(){
         updateOffer();
     })
-    $(".loan-input-time").on('input',function(){
+    $(".calc_time_value_input").on('input',function(){
         updateOffer();
     })
 
