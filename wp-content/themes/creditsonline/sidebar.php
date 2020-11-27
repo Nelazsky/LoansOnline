@@ -5,19 +5,19 @@
                 <div class="calc_sum">
                     <div class="calc_sum_value">
                         <div class="calc_sum_value_suffix">руб</div>
-                        <input type="text" class="calc_sum_value_input" data-calc="sum" value="5000">
+                        <input type="number" class="calc_sum_value_input" data-calc="sum" value="5000" min="1000"
+                               max="99999">
                     </div>
                     <div class="calc_sum_label">
                         Сумма займа
                     </div>
                 </div>
                 <div class="slider_line_cont">
-                    <div class="jqueryui_slider calc_loanslider loan_amount_slider" data-val="<?= INITIAL_SUM ?>"
-                         min="1000" max="99999" step="1000"></div>
-                    <div class="slider_control slider_minus">
+                    <div class="slider_control slider_minus slider_minus_sum">
                         <div class="icon"></div>
                     </div>
-                    <div class="slider_control slider_plus">
+                    <input type="range" min="1000" max="99999" step="1000" value="5000" class="range_input_sum">
+                    <div class="slider_control slider_plus slider_plus_sum">
                         <div class="icon"></div>
                     </div>
                 </div>
@@ -26,20 +26,19 @@
                 <div class="calc_sum">
                     <div class="calc_sum_value">
                         <div class="calc_sum_value_suffix">дней</div>
-                        <input type="text" class="calc_time_value_input " data-calc="term" value="30">
+                        <input type="number" class="calc_time_value_input " min="1" max="99" value="30">
                     </div>
                     <div class="calc_sum_label">
                         Срок займа
                     </div>
                 </div>
+
                 <div class="slider_line_cont">
-                    <div class="jqueryui_slider calc_loanslider loan_amount_slider" data-val="<?= INITIAL_TERM ?>"
-                         data-min="1" data-max="99" data-step="1"></div>
-                    <div class="slider_control slider_minus">
+                    <div class="slider_control slider_minus slider_minus_time">
                         <div class="icon"></div>
                     </div>
-                    <input type="range" class="calc_time_value_range" min="1" max="99" value="30">
-                    <div class="slider_control slider_plus">
+                    <input type="range" class="range_input_time" min="1" max="99" value="30">
+                    <div class="slider_control slider_plus slider_plus_time">
                         <div class="icon"></div>
                     </div>
 
@@ -52,43 +51,118 @@
     <input type="text" class="loan-input-time" value="30">
 </div>
 <script>
-jQuery(document).ready(function ($) {
+    jQuery(document).ready(function ($) {
 
-    function updateOffer(){
-        $.ajax({
-            url: '<?php echo admin_url("admin-ajax.php") ?>',
-            type: 'POST',
-            data: {
-                "action" : "filter",
-                "offer_sum": $(".calc_sum_value_input").val(),
-                "offer_time": $(".calc_time_value_input").val()
-            }, // можно также передать в виде массива или объекта
-            beforeSend: function( xhr ) {
+        function updateOffer() {
+            var sum = $(".calc_sum_value_input").val();
+            var time = $(".calc_time_value_input").val();
 
-                console.log('beforeSend!');
+            if ((time >= 1) && (time <= 100) && sum >= 1000 && sum <= 99000) {
+                $.ajax({
+                    url: '<?php echo admin_url("admin-ajax.php") ?>',
+                    type: 'POST',
+                    data: {
+                        "action": "filter",
+                        "offer_sum": sum,
+                        "offer_time": time
+                    }, // можно также передать в виде массива или объекта
+                    beforeSend: function (xhr) {
 
-                // $('#misha_button').text('Загрузка, 5 сек...');
-            },
-            success: function( data ) {
+                        console.log('beforeSend!');
 
-                $('.loan_wrapper').html(data)
+                        // $('#misha_button').text('Загрузка, 5 сек...');
+                    },
+                    success: function (data) {
+
+                        $('.loan_wrapper').html(data)
+                    }
+                });
             }
+        }
+
+
+        updateOffer();
+        $(".calc_sum_value_input").on('input', function () {
+            updateOffer();
+        })
+
+
+        //Sum
+        function changeSum(sum) {
+            if (sum >= 1000 && sum <= 99000) {
+                $(".range_input_sum").val(sum);
+                $(".calc_sum_value_input").val(sum);
+            }
+        }
+
+        $(".calc_sum_value_input").on('input', function () {
+            var sum = $(".calc_sum_value_input").val();
+            changeSum(sum);
+            console.log(sum);
+            updateOffer();
+        })
+
+        $('.slider_plus_sum').click(function () {
+            var sum = $(".range_input_sum").val();
+            changeSum(+sum + 1000);
+            console.log(+sum + 1000);
+            updateOffer();
+        })
+
+        $('.slider_minus_sum').click(function () {
+            var sum = $(".range_input_sum").val();
+            changeSum(+sum - 1000);
+            console.log(+sum - 1000);
+            updateOffer();
+        })
+
+        $('.range_input_sum').on('change', function () {
+
+            var sum = $(".range_input_sum").val();
+            changeSum(sum);
+            console.log(sum);
+            updateOffer();
         });
-    }
-    updateOffer();
-    $(".calc_sum_value_input").on('input',function(){
-        updateOffer();
-    })
-    $(".calc_time_value_input").on('input',function(){
-        updateOffer();
-    })
 
-})
+        //Time
 
-let range = document.querySelector('.calc_time_value_range');
-let timeInput = document.querySelector('.calc_time_value_input');
-range.oninput = function () {
-    console.log(this.value);
-    timeInput.innerHTML= this.value;
-}
+        function changeTime(time) {
+            if ((time >= 1) && (time <= 100)) {
+                $(".range_input_time").val(time);
+                $(".calc_time_value_input").val(time);
+            }
+        }
+
+        $(".calc_time_value_input").on('input', function () {
+            var time = $(".calc_time_value_input").val();
+            changeTime(+time);
+            console.log(+time);
+            updateOffer();
+        })
+
+        $('.slider_plus_time').click(function () {
+            var time = $(".range_input_time").val();
+            changeTime(+time + 1);
+            console.log(+time + 1);
+            console.log("slider_plus_time");
+            updateOffer();
+        })
+
+
+        $('.slider_minus_time').click(function () {
+            var time = $(".range_input_time").val();
+            changeTime(+time - 1);
+            console.log(+time - 1);
+            updateOffer();
+        })
+
+        $('.range_input_time').on('change', function () {
+
+            var time = $(".range_input_time").val();
+            changeTime(+time);
+            console.log(+time);
+            updateOffer();
+        });
+
+    })
 </script>
