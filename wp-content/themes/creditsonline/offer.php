@@ -1,5 +1,5 @@
 
-<div class="offer <?=$offer->feature? 'feature' : ''?>" <?=$offer->feature? 'style="border-color:'.$offer->feature_color.'"' : ''?>>
+<div class="offer <?=$offer->feature? 'feature' : ''?>" <?=$offer->feature? 'style="border-color:'.$offer->loan_color.'"' : ''?>>
     <?php if($offer->feature) { ?>
         <div class="offer_feature">
         <span <?=$offer->feature? 'style="background-color:'.$offer->loan_color.'"' : ''?>>
@@ -9,7 +9,7 @@
     <?php } ?>
     <div class="offer_logo">
         <div class="offer_logo_con">
-            <img src="<?php echo $offer->offer_file_src; ?>" alt="<?php echo $offer->title ?>">
+            <img src="<?php echo $offer->offer_file_src; ?>" alt="Лого">
         </div>
         <div class="offer_rating">
             <div class="offer_rating_stars">

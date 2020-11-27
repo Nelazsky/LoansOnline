@@ -13,7 +13,7 @@
                 </div>
                 <div class="slider_line_cont">
                     <div class="jqueryui_slider calc_loanslider loan_amount_slider" data-val="<?= INITIAL_SUM ?>"
-                         data-min="1000" data-max="99999" data-step="1000"></div>
+                         min="1000" max="99999" step="1000"></div>
                     <div class="slider_control slider_minus">
                         <div class="icon"></div>
                     </div>
@@ -38,6 +38,7 @@
                     <div class="slider_control slider_minus">
                         <div class="icon"></div>
                     </div>
+                    <input type="range" class="calc_time_value_range" min="1" max="99" value="30">
                     <div class="slider_control slider_plus">
                         <div class="icon"></div>
                     </div>
@@ -83,4 +84,11 @@ jQuery(document).ready(function ($) {
     })
 
 })
+
+let range = document.querySelector('.calc_time_value_range');
+let timeInput = document.querySelector('.calc_time_value_input');
+range.oninput = function () {
+    console.log(this.value);
+    timeInput.innerHTML= this.value;
+}
 </script>
