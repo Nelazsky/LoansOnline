@@ -39,7 +39,7 @@
                 <div>
                     <div class="label">К выплате</div>
                     <div class="value">
-                        <?=$offer_sum+( $offer_time * $offer->arp_first ) ?>
+                        <?=$offer_sum+($offer_sum * $offer_time * $offer->arp_first / 100 ) ?>
                         <small> руб</small>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                             class="fee_days"><?php echo $offer->loan_time; ?></span> дн
                     </div>
                     <div class="value">
-                        <?= $offer_time * $offer->arp_first ?>
+                        <?= $offer_sum * $offer_time * $offer->arp_first / 100 ?>
                         <small> руб</small>
                     </div>
                 </div>

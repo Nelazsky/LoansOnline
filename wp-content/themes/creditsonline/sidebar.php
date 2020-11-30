@@ -46,9 +46,6 @@
             </div>
         </div>
     </div>
-    <!-- <div class="notifications"></div> -->
-    <input type="text" class="loan-input-sum" value="5000">
-    <input type="text" class="loan-input-time" value="30">
 </div>
 <script>
     jQuery(document).ready(function ($) {
