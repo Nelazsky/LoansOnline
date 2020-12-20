@@ -1,32 +1,35 @@
-<div class="offer feature" style="border-color: <?php echo $offer->loan_color ?>">
-    <div class="offer_feature">
-                                <span style="background-color:  <?php echo $offer->loan_color; ?>">
-                                    <?php echo $offer->extra_text; ?>
-                                </span>
-    </div>
+
+<div class="offer <?=$offer->feature? 'feature' : ''?>" <?=$offer->feature? 'style="border-color:'.$offer->loan_color.'"' : ''?>>
+    <?php if($offer->feature) { ?>
+        <div class="offer_feature">
+        <span <?=$offer->feature? 'style="background-color:'.$offer->loan_color.'"' : ''?>>
+            <?php echo $offer->extra_text; ?>
+        </span>
+        </div>
+    <?php } ?>
     <div class="offer_logo">
         <div class="offer_logo_con">
-            <img src="<?php echo $offer->offer_file_src; ?>" alt="Логотип">
+            <img src="<?php echo $offer->offer_file_src; ?>" alt="Лого">
         </div>
         <div class="offer_rating">
             <div class="offer_rating_stars">
-                <div class="offer_rating_stars_icons" style="width: <?php echo $offer->rating * 20; ?>%">
-                    <i class="dashicons dashicons-star-filled"></i>
-                    <i class="dashicons dashicons-star-filled"></i>
-                    <i class="dashicons dashicons-star-filled"></i>
-                    <i class="dashicons dashicons-star-filled"></i>
-                    <i class="dashicons dashicons-star-filled"></i>
+                <div class="offer_rating_stars_icons" style="width: <?= $offer->loan_rating * 20 ?>%">
+                    <i class="icon_star"></i>
+                    <i class="icon_star"></i>
+                    <i class="icon_star"></i>
+                    <i class="icon_star"></i>
+                    <i class="icon_star"></i>
                 </div>
                 <div class="offer_rating_stars_icons_outline">
-                    <i class="dashicons dashicons-star-empty"></i>
-                    <i class="dashicons dashicons-star-empty"></i>
-                    <i class="dashicons dashicons-star-empty"></i>
-                    <i class="dashicons dashicons-star-empty"></i>
-                    <i class="dashicons dashicons-star-empty"></i>
+                    <i class="icon_star_outline"></i>
+                    <i class="icon_star_outline"></i>
+                    <i class="icon_star_outline"></i>
+                    <i class="icon_star_outline"></i>
+                    <i class="icon_star_outline"></i>
                 </div>
             </div>
             <div class="offer_rating_text">
-
+                (<?=$offer->loan_rating?>)
             </div>
         </div>
     </div>
@@ -36,7 +39,7 @@
                 <div>
                     <div class="label">К выплате</div>
                     <div class="value">
-                        <?= $offer_sum +( $offer_time * $offer->arp_first ) ?>
+                        <?=$offer_sum+($offer_sum * $offer_time * $offer->arp_first / 100 ) ?>
                         <small> руб</small>
                     </div>
                 </div>
@@ -52,7 +55,7 @@
                             class="fee_days"><?php echo $offer->loan_time; ?></span> дн
                     </div>
                     <div class="value">
-                        <?= $offer_time * $offer->arp_first ?>
+                        <?= $offer_sum * $offer_time * $offer->arp_first / 100 ?>
                         <small> руб</small>
                     </div>
                 </div>
