@@ -186,13 +186,14 @@ if (defined('JETPACK__VERSION')) {
 }
 
 
-add_action( 'wp_enqueue_scripts', 'my_scripts_method' );
-function my_scripts_method(){
-    wp_enqueue_script( 'jquery' );
+add_action('wp_enqueue_scripts', 'my_scripts_method');
+function my_scripts_method()
+{
+    wp_enqueue_script('jquery');
 }
 
-add_action('init', 'my_custom_init');
-function my_custom_init()
+add_action('init', 'register_offer');
+function register_offer()
 {
     register_post_type('offer', [
         'labels' => [
@@ -211,29 +212,44 @@ function my_custom_init()
         ],
         'description' => 'Кредитный оффер',
         'public' => true,
-// 'publicly_queryable'  => null, // зависит от public
-// 'exclude_from_search' => null, // зависит от public
-// 'show_ui'             => null, // зависит от public
-// 'show_in_nav_menus'   => null, // зависит от public
         'show_in_menu' => true, // показывать ли в меню адмнки
-// 'show_in_admin_bar'   => null, // зависит от show_in_menu
         'show_in_rest' => null, // добавить в REST API. C WP 4.7
         'rest_base' => null, // $post_type. C WP 4.7
         'menu_position' => 4,
         'menu_icon' => null,
         'capability_type' => 'post',
-//'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
-//'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
         'hierarchical' => false,
         'supports' => [
             'title',
             'thumbnail',
             'custom-fields',
-        ], // 'title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-        'taxonomies' => [],
+            'post-formats'
+        ], // 'editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
         'has_archive' => true,
-        'rewrite' => true,
-        'query_var' => true,
+    ]);
+
+    register_taxonomy('region', 'offer', [
+        'label' => '', // определяется параметром $labels->name
+        'labels' => [
+            'name' => 'Регионы',
+            'singular_name' => 'Регионы',
+            'search_items' => 'Поиск регионов',
+            'all_items' => 'Все регионы',
+            'view_item ' => 'Посмотреть регион',
+            'parent_item' => 'Родительский регион',
+            'parent_item_colon' => 'Родительский регион:',
+            'edit_item' => 'Изменить регион',
+            'update_item' => 'Обновить регион',
+            'add_new_item' => 'Добавить новый регион',
+            'new_item_name' => 'Новое имя региона',
+            'menu_name' => 'Регион',
+        ],
+        'description' => 'Для того чтобы распределить офферы по разным страницам, нужно указать им регион', // описание таксономии
+        'public' => true,
+        'capabilities'          => array(),
+        'show_in_menu' => true,
+        'hierarchical'          => true,
+        'rewrite'               => true,
     ]);
 }
 
@@ -253,7 +269,24 @@ function offer_filtering()
 
     $offer_time = $_POST["offer_time"];
 
-    $args = array('post_type' => 'offer');
+    $args = array(
+        'post_type' => 'offer',
+        'numberposts' => 50,
+        'category' => 0,
+        'orderby' => 'meta_value',
+        'order' => 'DESC',
+        'include' => array(),
+        'exclude' => array(),
+        'meta_key' => 'loan_rating',
+        'suppress_filters' => true,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'region',
+                'field' => 'slug',
+                'terms' => array( 'russia')
+            )
+        )
+    );
 
     $offers = get_posts($args);
     $bad_loans = [];

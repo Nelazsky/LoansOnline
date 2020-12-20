@@ -1,7 +1,18 @@
 <div class="offers">
     <div class="offers_available">
         <?php
-        $args = array('post_type' => 'offer',);
+        $args = array(
+            'numberposts' => 5,
+            'category'    => 0,
+            'orderby'     => 'date',
+            'order'       => 'DESC',
+            'include'     => array(),
+            'exclude'     => array(),
+            'meta_key'    => '',
+            'meta_value'  =>'',
+            'post_type'   => 'post',
+            'suppress_filters' => true,
+            );
         $offers = get_posts($args);
 
         foreach ($offers as $offer) {
