@@ -62,7 +62,7 @@
                         "action": "filter",
                         "offer_sum": sum,
                         "offer_time": time
-                    },
+                    }, // можно также передать в виде массива или объекта
                     beforeSend: function (xhr) {
 
                     },
