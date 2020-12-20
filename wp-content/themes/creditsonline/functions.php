@@ -185,6 +185,10 @@ if (defined('JETPACK__VERSION')) {
     require get_template_directory() . '/inc/jetpack.php';
 }
 
+add_action( 'wp_enqueue_scripts', 'my_scripts_method' );
+function my_scripts_method(){
+    wp_enqueue_script( 'jquery' );
+}
 
 add_action('init', 'my_custom_init');
 function my_custom_init()

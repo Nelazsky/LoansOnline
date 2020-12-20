@@ -62,12 +62,9 @@
                         "action": "filter",
                         "offer_sum": sum,
                         "offer_time": time
-                    }, // можно также передать в виде массива или объекта
+                    },
                     beforeSend: function (xhr) {
 
-                        console.log('beforeSend!');
-
-                        // $('#misha_button').text('Загрузка, 5 сек...');
                     },
                     success: function (data) {
 
@@ -160,6 +157,5 @@
             console.log(+time);
             updateOffer();
         });
-
     })
 </script>

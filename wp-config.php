@@ -1,5 +1,4 @@
 <?php
-define('WP_CACHE', true);
 /**
  * Основные параметры WordPress.
  *
