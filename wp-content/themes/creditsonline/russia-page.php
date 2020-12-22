@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name:  Default Page
+Template Name: Russia Page
 */
 ?>
 <?php get_header(); ?>
@@ -10,7 +10,7 @@ Template Name:  Default Page
             <div class="container topbar-container">
                 <div class="topbar-left-text">
                     <p>❌ НЕ БЕРИТЕ ЗАЙМ, ЕСЛИ МОЖЕТЕ НЕ БРАТЬ</p>
-                    <p>⚡ НЕСКОЛЬКО ЗАЯВОК = 100% ШАНСОВ НА ВЫДАЧУ</p>
+                    <p>⚡ НЕСКОЛЬКО ЗАЯВОК = 100% ШАНСОВ НА ВЫДАЧУ RUSSIA!</p>
                 </div>
             </div>
         </div>
@@ -23,7 +23,6 @@ Template Name:  Default Page
         </div>
     </div>
 
-
     <main>
     <div class="container">
 
@@ -33,7 +32,7 @@ Template Name:  Default Page
 
         <div class="main-content">
             <div class="main-top clearfix">
-                <div>Только надёжные МФО с лиц. ЦБ</div>
+                <div>Только надёжные МФО КРЫМ с лиц. ЦБ</div>
                 <div>Рейтинг на <?= get_current_date() ?> г.</div>
             </div>
             <!-- Offers block START-->

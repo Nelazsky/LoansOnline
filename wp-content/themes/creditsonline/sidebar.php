@@ -61,7 +61,8 @@
                     data: {
                         "action": "filter",
                         "offer_sum": sum,
-                        "offer_time": time
+                        "offer_time": time,
+                        "current_template": '<?php echo get_page_template_slug(); ?>'
                     }, // можно также передать в виде массива или объекта
                     beforeSend: function (xhr) {
 

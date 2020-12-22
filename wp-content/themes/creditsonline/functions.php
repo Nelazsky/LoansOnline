@@ -269,24 +269,60 @@ function offer_filtering()
 
     $offer_time = $_POST["offer_time"];
 
-    $args = array(
-        'post_type' => 'offer',
-        'numberposts' => 50,
-        'category' => 0,
-        'orderby' => 'meta_value',
-        'order' => 'DESC',
-        'include' => array(),
-        'exclude' => array(),
-        'meta_key' => 'loan_rating',
-        'suppress_filters' => true,
-        'tax_query' => array(
-            array(
-                'taxonomy' => 'region',
-                'field' => 'slug',
-                'terms' => array( 'russia')
+    $current_template = $_POST["current_template"];
+
+
+    if( $current_template == 'russia-page.php'  ){
+        $args = array(
+            'post_type' => 'offer',
+            'numberposts' => 50,
+            'category' => 0,
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'include' => array(),
+            'exclude' => array(),
+            'meta_key' => 'loan_rating',
+            'suppress_filters' => true,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'region',
+                    'field' => 'slug',
+                    'terms' => array( 'russia')
+                )
             )
-        )
-    );
+        );
+    }else if( $current_template == 'crimea-page.php' ){
+        $args = array(
+            'post_type' => 'offer',
+            'numberposts' => 50,
+            'category' => 0,
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'include' => array(),
+            'exclude' => array(),
+            'meta_key' => 'loan_rating',
+            'suppress_filters' => true,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'region',
+                    'field' => 'slug',
+                    'terms' => array( 'crimea')
+                )
+            )
+        );
+    }else{
+        $args = array(
+            'post_type' => 'offer',
+            'numberposts' => 50,
+            'category' => 0,
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'include' => array(),
+            'exclude' => array(),
+            'meta_key' => 'loan_rating',
+            'suppress_filters' => true,
+        );
+    }
 
     $offers = get_posts($args);
     $bad_loans = [];
