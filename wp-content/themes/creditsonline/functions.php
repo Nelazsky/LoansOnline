@@ -306,7 +306,197 @@ function offer_filtering()
                 array(
                     'taxonomy' => 'region',
                     'field' => 'slug',
-                    'terms' => array( 'crimea')
+                    'terms' => array( 'сrimea')
+                )
+            )
+        );
+    }else if( $current_template == 'page1.php' ){
+        $args = array(
+            'post_type' => 'offer',
+            'numberposts' => 50,
+            'category' => 0,
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'include' => array(),
+            'exclude' => array(),
+            'meta_key' => 'loan_rating',
+            'suppress_filters' => true,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'region',
+                    'field' => 'slug',
+                    'terms' => array( 'page1')
+                )
+            )
+        );
+    }else if( $current_template == 'page2.php' ){
+        $args = array(
+            'post_type' => 'offer',
+            'numberposts' => 50,
+            'category' => 0,
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'include' => array(),
+            'exclude' => array(),
+            'meta_key' => 'loan_rating',
+            'suppress_filters' => true,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'region',
+                    'field' => 'slug',
+                    'terms' => array( 'page2')
+                )
+            )
+        );
+    }else if( $current_template == 'page3.php' ){
+        $args = array(
+            'post_type' => 'offer',
+            'numberposts' => 50,
+            'category' => 0,
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'include' => array(),
+            'exclude' => array(),
+            'meta_key' => 'loan_rating',
+            'suppress_filters' => true,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'region',
+                    'field' => 'slug',
+                    'terms' => array( 'page3')
+                )
+            )
+        );
+    }else if( $current_template == 'page4.php' ){
+        $args = array(
+            'post_type' => 'offer',
+            'numberposts' => 50,
+            'category' => 0,
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'include' => array(),
+            'exclude' => array(),
+            'meta_key' => 'loan_rating',
+            'suppress_filters' => true,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'region',
+                    'field' => 'slug',
+                    'terms' => array( 'page4')
+                )
+            )
+        );
+    }else if( $current_template == 'page5.php' ){
+        $args = array(
+            'post_type' => 'offer',
+            'numberposts' => 50,
+            'category' => 0,
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'include' => array(),
+            'exclude' => array(),
+            'meta_key' => 'loan_rating',
+            'suppress_filters' => true,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'region',
+                    'field' => 'slug',
+                    'terms' => array( 'page5')
+                )
+            )
+        );
+    }else if( $current_template == 'page6.php' ){
+        $args = array(
+            'post_type' => 'offer',
+            'numberposts' => 50,
+            'category' => 0,
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'include' => array(),
+            'exclude' => array(),
+            'meta_key' => 'loan_rating',
+            'suppress_filters' => true,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'region',
+                    'field' => 'slug',
+                    'terms' => array( 'page6')
+                )
+            )
+        );
+    }else if( $current_template == 'page7.php' ){
+        $args = array(
+            'post_type' => 'offer',
+            'numberposts' => 50,
+            'category' => 0,
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'include' => array(),
+            'exclude' => array(),
+            'meta_key' => 'loan_rating',
+            'suppress_filters' => true,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'region',
+                    'field' => 'slug',
+                    'terms' => array( 'page7')
+                )
+            )
+        );
+    }else if( $current_template == 'page8.php' ){
+        $args = array(
+            'post_type' => 'offer',
+            'numberposts' => 50,
+            'category' => 0,
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'include' => array(),
+            'exclude' => array(),
+            'meta_key' => 'loan_rating',
+            'suppress_filters' => true,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'region',
+                    'field' => 'slug',
+                    'terms' => array( 'page8')
+                )
+            )
+        );
+    }else if( $current_template == 'page9.php' ){
+        $args = array(
+            'post_type' => 'offer',
+            'numberposts' => 50,
+            'category' => 0,
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'include' => array(),
+            'exclude' => array(),
+            'meta_key' => 'loan_rating',
+            'suppress_filters' => true,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'region',
+                    'field' => 'slug',
+                    'terms' => array( 'page9')
+                )
+            )
+        );
+    }else if( $current_template == 'page10.php' ){
+        $args = array(
+            'post_type' => 'offer',
+            'numberposts' => 50,
+            'category' => 0,
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'include' => array(),
+            'exclude' => array(),
+            'meta_key' => 'loan_rating',
+            'suppress_filters' => true,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'region',
+                    'field' => 'slug',
+                    'terms' => array( 'page10')
                 )
             )
         );
