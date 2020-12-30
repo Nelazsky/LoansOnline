@@ -9,7 +9,6 @@
                                max="99999">
                     </div>
                     <div class="calc_sum_label">
-
                         <?php if( get_page_template_slug() == 'russia-page.php'){
                             echo "Сумма ";
                         }else{
@@ -102,18 +101,21 @@
         $(".calc_sum_value_input").on('input', function () {
             var sum = $(".calc_sum_value_input").val();
             changeSum(sum);
+            console.log(sum);
             updateOffer();
         })
 
         $('.slider_plus_sum').click(function () {
             var sum = $(".range_input_sum").val();
             changeSum(+sum + 1000);
+            console.log(+sum + 1000);
             updateOffer();
         })
 
         $('.slider_minus_sum').click(function () {
             var sum = $(".range_input_sum").val();
             changeSum(+sum - 1000);
+            console.log(+sum - 1000);
             updateOffer();
         })
 
@@ -121,6 +123,7 @@
 
             var sum = $(".range_input_sum").val();
             changeSum(sum);
+            console.log(sum);
             updateOffer();
         });
 
@@ -136,12 +139,15 @@
         $(".calc_time_value_input").on('input', function () {
             var time = $(".calc_time_value_input").val();
             changeTime(+time);
+            console.log(+time);
             updateOffer();
         })
 
         $('.slider_plus_time').click(function () {
             var time = $(".range_input_time").val();
             changeTime(+time + 1);
+            console.log(+time + 1);
+            console.log("slider_plus_time");
             updateOffer();
         })
 
@@ -149,6 +155,7 @@
         $('.slider_minus_time').click(function () {
             var time = $(".range_input_time").val();
             changeTime(+time - 1);
+            console.log(+time - 1);
             updateOffer();
         })
 
@@ -156,6 +163,7 @@
 
             var time = $(".range_input_time").val();
             changeTime(+time);
+            console.log(+time);
             updateOffer();
         });
     })

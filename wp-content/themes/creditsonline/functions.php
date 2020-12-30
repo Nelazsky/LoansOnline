@@ -524,12 +524,11 @@ function offer_filtering()
         $loan_sum = explode("-", get_field('loan_first_sum', $offer->ID));
 
         if ((int)$loan_time[0] <= (int)$offer_time and (int)$loan_time[1] >= (int)$offer_time and (int)$loan_sum[0] <= (int)$offer_sum and (int)$loan_sum[1] >= (int)$offer_sum) {
-
             if( $current_template == 'russia-page.php' ){
-                include 'offer1.php';
-            }else{
-                include 'offer.php';
-            }
+            include 'offer1.php';
+        }else{
+            include 'offer.php';
+        }
 
         } else {
             $bad_loans[] = $offer;
@@ -539,12 +538,11 @@ function offer_filtering()
     echo " <div class=\"unavailable\">Результаты, не соответствующие условиям первого кредита</div>";
 
     foreach ($bad_loans as $offer) {
-        if( $current_template == 'russia-page.php' ){
+       if( $current_template == 'russia-page.php' ){
             include 'offer1.php';
         }else{
             include 'offer.php';
         }
-
     }
     wp_reset_postdata();
 
