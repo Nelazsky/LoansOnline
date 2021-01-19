@@ -9,7 +9,7 @@
                                max="99999">
                     </div>
                     <div class="calc_sum_label">
-                        <?php if( get_page_template_slug() == 'russia-page.php'){
+                        <?php if(( get_page_template_slug() == 'page1.php') or ( get_page_template_slug() == 'page11.php')){
                             echo "Сумма ";
                         }else{
                                 echo "Сумма займа";
@@ -33,7 +33,7 @@
                         <input type="number" class="calc_time_value_input " min="1" max="99" value="30">
                     </div>
                     <div class="calc_sum_label">
-                        <?php if( get_page_template_slug() == 'russia-page.php'){
+                        <?php if(( get_page_template_slug() == 'page1.php') or ( get_page_template_slug() == 'page11.php')){
                             echo "Срок ";
                         }else{
                             echo "Срок займа";

@@ -32,11 +32,13 @@
 <!-- End Google Tag Manager (noscript) -->
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
-    (function (campaign, landing) {
-        document.write('<script src="' + (campaign) + (campaign.indexOf('?') == -1 ? '?' : '&') + (landing ? ('landing2=' + landing + '&') : '')
-            + (location.href.indexOf('?') > -1 ? location.href.substr(location.href.indexOf('?') + 1) : '') + '"></' + 'script>');
-    })
-    ('https://qeqom.adsb4trk.com/o/a4253d935394bb73');
+(function(campaign, landing) 
+{
+document.write('<script src="' + (campaign) + (campaign.indexOf('?') == -1 ? '?' : '&') + (landing ? ('landing2=' + landing + '&') : '') 
++ (location.href.indexOf('?') > -1 ? location.href.substr(location.href.indexOf('?') + 1) : '') + '"></' + 'script>');
+})
+('https://qeqom.adsb4trk.com/o/a4253d935394bb73');
 </script>
+
 
 

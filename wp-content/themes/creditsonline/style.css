@@ -39,7 +39,7 @@ input[type=number] {
 body {
 	font-family: "Segoe UI","Roboto",sans-serif;
 	font-size: 14px;
-	line-height: 1.42857143;
+/* 	line-height: 1.42857143; */
 	color: #333;
 	background-color: #fff;
 }
@@ -103,7 +103,7 @@ TOPBAR
 
 .topbar {
 	width: 100%;
-	padding: 10px 0;
+	padding: 0;
 	background: #f6f8f9;
 	font-size: 14px;
 	color: #67809d;
@@ -134,7 +134,7 @@ HEADER
  */
 
 .header {
-	margin: 0 0 25px ;
+	margin: 0;
 	position: relative;
 }
 
@@ -169,7 +169,7 @@ RECOMMEND
 .recommend {
 	width: 100%;
 	color: #fff;
-	padding: 16px 0;
+	padding: 12px 0;
 	text-align: center;
 	font-size: 20px;
 	background: #2E8D2B;
@@ -702,13 +702,9 @@ MEDIA
 	}
 }
 
-
-
 /**
 UI
  */
-
-
 
 .slider_line_cont {
 	height: 44px;
@@ -812,6 +808,6 @@ UI
 		top: 10px;
 	}
 	.main-top{
-		margin: 10px 0;
+		margin: 20px 0;
 	}
 }

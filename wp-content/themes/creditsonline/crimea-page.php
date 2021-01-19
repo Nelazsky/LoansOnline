@@ -22,8 +22,6 @@ Template Name: Crimea Page
             </div>
         </div>
     </div>
-
-
     <main>
     <div class="container">
 
@@ -33,7 +31,7 @@ Template Name: Crimea Page
 
         <div class="main-content">
             <div class="main-top clearfix">
-                <div>Только надёжные МФО КРЫМ с лиц. ЦБ</div>
+                <div>Только надёжные МФО с лиц. ЦБ</div>
                 <div>Рейтинг на <?= get_current_date() ?> г.</div>
             </div>
             <!-- Offers block START-->
