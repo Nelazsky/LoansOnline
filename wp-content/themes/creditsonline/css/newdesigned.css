@@ -1,20 +1,14 @@
-
-
-
-
-
-
-
-
-
-
-
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
 body {
     font-family: "Segoe UI","Roboto",sans-serif;
     font-size: 14px;
     /* 	line-height: 1.42857143; */
     color: #333;
     background-color: #fff;
+    margin: 0;
 }
 
 .icon_star {
@@ -35,18 +29,28 @@ body {
     background-size: cover;
 }
 
-.top-section{
+.top{
     background: #F7F7F7;
     color: #727272;
     margin-bottom: 20px;
+
+
 }
-.top-left{
-    text-align: right;
+.top-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
 }
-.top-right{
-    text-align: left;
+.top-left,.top-right{
+    margin:20px;
 }
 
+.main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
 .main-left{
     display: flex;
@@ -93,12 +97,12 @@ SIDEBAR
 .range_input_sum::-webkit-slider-runnable-track {
     border-radius: 10px/100%;
     height: 7px;
-    background-color: #EB5413;!important;
+    background-color: #EB5413;
 }
 .range_input_time::-webkit-slider-thumb ,
 .range_input_sum::-webkit-slider-thumb {
     background: #EB5413;
-    border-radius: 25px/100%;!important;
+    border-radius: 25px/100%;
     cursor: pointer;
     width: 25px;
     height: 25px;
@@ -270,61 +274,70 @@ UI
     line-height: 130%;
 }
 /**
-offer
+loan
  */
+.loans-grid {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 
+    grid-column-gap: 30px;
+    grid-row-gap: 20px;
+    margin-bottom: 40px;
+}
 
-.offer{
+.loan-item{
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     border-radius: 5px;
     max-height: 195px;
-    margin-bottom: 30px;
+    max-width: 280px;
 }
 .popup{
     display: flex;
     justify-content: space-around;
 }
-.offer-popup{
+.loan-popup{
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     border-radius: 5px;
     margin: 50px 0px;
     min-width: 450px;
+
 }
-.offer-body{
+.loan-body{
 
     padding: 15px 20px;
 }
-.offer-top{
+.loan-top{
     display: flex;
     justify-content: space-between;
 
 }
 
-.offer_logo {
+.loan-logo {
     display: inline-block;
     max-width: 135px;
     vertical-align: middle;
 }
 
-.offer_logo_con {
+.loan_logo_con {
     min-height: 70px;
     line-height: 70px;
 }
 
-.offer_logo img {
+.loan_logo img {
     vertical-align: middle;
     width: 100%;
 }
 
-.offer_rating {
+.loan-rating {
     text-align: right;
 }
 
-.offer_rating_stars {
+.loan_rating_stars {
     position: relative;
     height: 13px;
     width: 71px;
@@ -333,18 +346,18 @@ offer
     margin-left: 15px;
 }
 
-.offer_rating_stars_icons,
-.offer_rating_stars_icons_outline {
+.loan_rating_stars_icons,
+.loan_rating_stars_icons_outline {
     height: 16px;
     overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
 }
-.offer_rating{
+.loan_rating{
     text-align: right;
 }
-.offer_rating_text{
+.loan_rating_text{
 
     font-weight: bold;
     font-size: 12px;
@@ -352,49 +365,51 @@ offer
     color: #727272;
 }
 
-.offer-text{
+.loan-text{
     margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
 }
-.offer-sum-text{
+.loan-sum-text{
     font-weight: bold;
     font-size: 18px;
     line-height: 90%;
     color: #000000;
 }
-.offer-sum-text-little{
+.loan-sum-text-little{
 
     font-size: 18px;
     line-height: 90%;
     color: #000000;
 }
-.offer-sum{
+.loan-sum{
     font-weight: bold;
     font-size: 20px;
     line-height: 90%;
     color: #0893F6;
 }
 
-.offer-sum-little{
+.loan-sum-little{
     font-weight: bold;
     font-size: 16px;
     line-height: 90%;
     color: #0893F6;
 
 }
-.offer-sum-rub{
+.loan-sum-rub{
     font-size: 14px;
     color: #727272;
     display: inline-block;
     font-weight: lighter;
 }
-.offer-more{
+.loan-more{
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     color: #727272;
 }
 
-.offer-button{
+.loan-button{
     background: #2D8D2B;
     font-style: normal;
     font-weight: bold;
@@ -404,11 +419,17 @@ offer
     color: #FFFFFF;
     padding: 15px 30px;
     border-radius: 0px 0px 5px 5px ;
+    border: none;
 }
 .footer{
     background: #232323;
     color: #fff;
     padding: 20px 0;
+    width: 100%;
+}
+.footer-wrapper{
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
 }
 .footer-right{
     display: flex;

@@ -22,7 +22,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php wp_title() ?></title>
 
-
+    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?= bloginfo('template_directory'); ?>/css/grid.css"/>
     <?php
     if ( is_page_template('newdesigned.php') ) {
         ?>
@@ -32,8 +33,7 @@
         <?php
     }else{
         ?>
-        <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?= bloginfo('template_directory'); ?>/css/grid.css"/>
+
     <?php
     }
     ?>
