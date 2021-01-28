@@ -811,3 +811,118 @@ UI
 		margin: 20px 0;
 	}
 }
+
+.offer-body{
+
+	padding: 15px 20px;
+}
+.offer-top{
+	display: flex;
+	justify-content: space-between;
+
+}
+
+.offer_logo {
+	display: inline-block;
+	max-width: 135px;
+	vertical-align: middle;
+}
+
+.offer_logo_con {
+	min-height: 70px;
+	line-height: 70px;
+}
+
+.offer_logo img {
+	vertical-align: middle;
+	width: 100%;
+}
+
+.offer_rating {
+	text-align: right;
+}
+
+.offer_rating_stars {
+	position: relative;
+	height: 13px;
+	width: 71px;
+	text-align: right;
+	display: inline-block;
+	margin-left: 15px;
+}
+
+.offer_rating_stars_icons,
+.offer_rating_stars_icons_outline {
+	height: 16px;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.offer_rating{
+	text-align: right;
+}
+.offer_rating_text{
+
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 90%;
+	color: #727272;
+}
+
+.offer-text{
+	margin: 15px 0;
+	display: flex;
+	justify-content: space-between;
+}
+.offer-sum-text{
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 90%;
+	color: #000000;
+}
+.offer-sum-text-little{
+
+	font-size: 18px;
+	line-height: 90%;
+	color: #000000;
+}
+.offer-sum{
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 90%;
+	color: #0893F6;
+}
+
+.offer-sum-little{
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 90%;
+	color: #0893F6;
+
+}
+.offer-sum-rub{
+	font-size: 14px;
+	color: #727272;
+	display: inline-block;
+	font-weight: lighter;
+}
+.offer-more{
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	color: #727272;
+}
+
+.offer-button {
+	background: #2D8D2B;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 130%;
+	text-align: center;
+	color: #FFFFFF;
+	padding: 15px 30px;
+	border-radius: 0px 0px 5px 5px;
+	border: none;
+}

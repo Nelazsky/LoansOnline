@@ -1,3 +1,5 @@
+<!doctype html>
+<html lang="ru">
 <head>
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -19,8 +21,22 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php wp_title() ?></title>
-    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?= bloginfo('template_directory'); ?>/css/grid.css"/>
+
+
+    <?php
+    if ( is_page_template('newdesigned.php') ) {
+        ?>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <link rel="stylesheet" type="text/css" href="<?= bloginfo('template_directory'); ?>/css/newdesigned.css"/>
+        <?php
+    }else{
+        ?>
+        <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?= bloginfo('template_directory'); ?>/css/grid.css"/>
+    <?php
+    }
+    ?>
     <?php wp_head(); ?>
 </head>
 <body>
@@ -40,5 +56,54 @@ document.write('<script src="' + (campaign) + (campaign.indexOf('?') == -1 ? '?'
 ('https://qeqom.adsb4trk.com/o/a4253d935394bb73');
 </script>
 
+<div class="popup">
+    <div class="offer-popup">
+        <div class="offer-body">
+            <div class="offer-top">
+                <div class="offer_logo">
+                    <img class="popup_img" src="img/credit1.jpg" alt="Лого">
+                </div>
+                <div class="offer_rating">
+                    <div class="offer_rating_stars">
+                        <div class="offer_rating_stars_icons" style="">
+                            <i class="icon_star"></i>
+                            <i class="icon_star"></i>
+                            <i class="icon_star"></i>
+                            <i class="icon_star"></i>
+                            <i class="icon_star"></i>
+                        </div>
+                        <div class="offer_rating_stars_icons_outline">
+                            <i class="icon_star_outline" ></i>
+                            <i class="icon_star_outline"></i>
+                            <i class="icon_star_outline"></i>
+                            <i class="icon_star_outline"></i>
+                            <i class="icon_star_outline"></i>
+                        </div>
+                    </div>
+                    <div class="offer_rating_text">
+                        <span class="popup_rating"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="offer-text">
+                <div class="offer-sum-text">
+                    К выплате
+                </div>
+                <div class="offer-sum">
+                   <span class="popup_first_sum"></span> <div class="offer-sum-rub">руб</div>
+                </div>
+            </div>
+            <div class="offer-text d-flex justify-content-between">
+                <div class="offer-sum-text-little">
+                    Срок
+                </div>
+                <div class="offer-sum-little">
+                   <span class="popup_time"></span> <div class="offer-sum-rub">дней</div>
+                </div>
+            </div>
+        </div>
+        <button class="offer-button">Получить займ</button>
 
+    </div>
+</div>
 

@@ -166,5 +166,16 @@
             console.log(+time);
             updateOffer();
         });
+        //modal
+        $(document).on("click",".offer_logo", function () {
+            var offerData = $(this).data('offer');
+            console.log(offerData);
+
+            $(".popup_img").attr("src", offerData.offer_logo);
+            $(".popup_rating").text( offerData.offer_rating);
+            $(".popup_first_sum").text( offerData.offer_first_sum);
+            $(".popup_time").text(offerData.offer_time);
+        })
+
     })
 </script>

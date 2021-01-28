@@ -138,12 +138,8 @@ function creditsonline_widgets_init()
         )
     );
 }
-
 add_action('widgets_init', 'creditsonline_widgets_init');
 
-/**
- * Enqueue scripts and styles.
- */
 function creditsonline_scripts()
 {
     wp_enqueue_style('creditsonline-style', get_stylesheet_uri(), array(), _S_VERSION);
@@ -716,10 +712,11 @@ function offer_filtering()
         if ((int)$loan_time[0] <= (int)$offer_time and (int)$loan_time[1] >= (int)$offer_time and (int)$loan_sum[0] <= (int)$offer_sum and (int)$loan_sum[1] >= (int)$offer_sum) {
             if( $current_template == 'russia-page.php' ){
             include 'offer1.php';
-        }else{
-            include 'offer.php';
-        }
-
+            }else if( $current_template == 'newdesigned.php'){
+                include 'newoffer.php';
+            }else{
+                include 'offer.php';
+            }
         } else {
             $bad_loans[] = $offer;
         }
@@ -728,8 +725,10 @@ function offer_filtering()
     echo " <div class=\"unavailable\">Результаты, не соответствующие условиям первого кредита</div>";
 
     foreach ($bad_loans as $offer) {
-       if( $current_template == 'russia-page.php' ){
+        if( $current_template == 'russia-page.php' ){
             include 'offer1.php';
+        }else if( $current_template == 'newdesigned.php'){
+            include 'newoffer.php';
         }else{
             include 'offer.php';
         }
