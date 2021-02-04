@@ -7,12 +7,7 @@
         </span>
         </div>
     <?php } ?>
-    <div class="offer_logo" data-offer='<?php echo json_encode([
-        "offer_logo" => $offer->offer_file_src,
-        "offer_rating" => $offer->loan_rating,
-        "offer_first_sum" => $offer->loan_first_sum,
-        "offer_time" => $offer->loan_time,
-    ]) ?>'>
+    <div class="offer_logo">
         <div class="offer_logo_con">
             <img src="<?php echo $offer->offer_file_src; ?>" alt="Лого">
         </div>

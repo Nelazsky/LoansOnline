@@ -547,9 +547,9 @@ class Helpers {
 			],
 			'plugins'          => $this->getPluginData(),
 			'postData'         => [
-				'postTypes'  => $this->getPublicPostTypes(),
-				'taxonomies' => $this->getPublicTaxonomies(),
-				'archives'   => $this->getPublicPostTypes( false, true )
+				'postTypes'  => $this->getPublicPostTypes( false, false, true ),
+				'taxonomies' => $this->getPublicTaxonomies( false, true ),
+				'archives'   => $this->getPublicPostTypes( false, true, true )
 			],
 			'notifications'    => [
 				'active'    => Models\Notification::getAllActiveNotifications(),
@@ -596,7 +596,7 @@ class Helpers {
 					'additional' => [],
 				],
 				'type'                        => $postTypeObj->labels->singular_name,
-				'postType'                    => $postTypeObj->name,
+				'postType'                    => 'type' === $postTypeObj->name ? '_aioseo_type' : $postTypeObj->name,
 				'isSpecialPage'               => $this->isSpecialPage( $postId ),
 				'isWooCommercePage'           => $this->isWooCommercePage( $postId ),
 				'seo_score'                   => (int) $post->seo_score,
@@ -771,9 +771,10 @@ class Helpers {
 	 *
 	 * @param  boolean $namesOnly       Whether only the names should be returned.
 	 * @param  boolean $hasArchivesOnly Whether or not to only include post types which have archives.
+	 * @param  boolean $rewriteType     Whether or not to rewrite the type slugs.
 	 * @return array                    An array of public post types.
 	 */
-	public function getPublicPostTypes( $namesOnly = false, $hasArchivesOnly = false ) {
+	public function getPublicPostTypes( $namesOnly = false, $hasArchivesOnly = false, $rewriteType = false ) {
 		$postTypes   = [];
 		$postObjects = get_post_types( [ 'public' => true ], 'objects' );
 		$woocommerce = class_exists( 'woocommerce' );
@@ -806,8 +807,13 @@ class Helpers {
 				$postObject->menu_icon = 'dashicons-products';
 			}
 
+			$name = $postObject->name;
+			if ( 'type' === $postObject->name && $rewriteType ) {
+				$name = '_aioseo_type';
+			}
+
 			$postTypes[] = [
-				'name'         => $postObject->name,
+				'name'         => $name,
 				'label'        => ucwords( $postObject->label ),
 				'singular'     => ucwords( $postObject->labels->singular_name ),
 				'icon'         => $postObject->menu_icon,
@@ -825,10 +831,11 @@ class Helpers {
 	 *
 	 * @since 4.0.0
 	 *
-	 * @param  boolean $namesOnly Whether only the names should be returned.
-	 * @return array              An array of public taxonomies.
+	 * @param  boolean $namesOnly   Whether only the names should be returned.
+	 * @param  boolean $rewriteType Whether or not to rewrite the type slugs.
+	 * @return array                An array of public taxonomies.
 	 */
-	public function getPublicTaxonomies( $namesOnly = false ) {
+	public function getPublicTaxonomies( $namesOnly = false, $rewriteType = false ) {
 		$taxonomies = [];
 		if ( count( $taxonomies ) ) {
 			return $taxonomies;
@@ -861,8 +868,13 @@ class Helpers {
 				continue;
 			}
 
+			$name = $taxObject->name;
+			if ( 'type' === $taxObject->name && $rewriteType ) {
+				$name = '_aioseo_type';
+			}
+
 			$taxonomies[] = [
-				'name'     => $taxObject->name,
+				'name'     => $name,
 				'label'    => ucwords( $taxObject->label ),
 				'singular' => ucwords( $taxObject->labels->singular_name ),
 				'icon'     => strpos( $taxObject->label, 'categor' ) !== false ? 'dashicons-category' : 'dashicons-tag'

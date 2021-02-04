@@ -30,7 +30,7 @@
                 <div class="calc_sum">
                     <div class="calc_sum_value">
                         <div class="calc_sum_value_suffix">дней</div>
-                        <input type="number" class="calc_time_value_input " min="1" max="99" value="30">
+                        <input type="number" class="calc_time_value_input " min="1" max="99" value="10">
                     </div>
                     <div class="calc_sum_label">
                         <?php if(( get_page_template_slug() == 'page1.php') or ( get_page_template_slug() == 'page11.php')){
@@ -45,7 +45,7 @@
                     <div class="slider_control slider_minus slider_minus_time">
                         <div class="icon"></div>
                     </div>
-                    <input type="range" class="range_input_time" min="1" max="99" value="30">
+                    <input type="range" class="range_input_time" min="1" max="99" value="10">
                     <div class="slider_control slider_plus slider_plus_time">
                         <div class="icon"></div>
                     </div>
@@ -166,16 +166,5 @@
             console.log(+time);
             updateOffer();
         });
-        //modal
-        $(document).on("click",".offer_logo", function () {
-            var offerData = $(this).data('offer');
-            console.log(offerData);
-
-            $(".popup_img").attr("src", offerData.offer_logo);
-            $(".popup_rating").text( offerData.offer_rating);
-            $(".popup_first_sum").text( offerData.offer_first_sum);
-            $(".popup_time").text(offerData.offer_time);
-        })
-
     })
 </script>

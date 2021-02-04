@@ -56,9 +56,6 @@
         <p>
             <b><a class="vk-link" href="https://vk.com/micro_credits" target="_blank">Наша группа ВК</a></b>
         </p>
-        <div class="copyrights">
-            ООО "ПРОФИТАТОР", ОГРН 5147746156718
-        </div>
     </div>
 </div>
 <?php get_footer() ?>

@@ -774,6 +774,9 @@ class Admin {
 	 * @return bool
 	 */
 	public function isAllowedScreen( $screen, $postType ) {
+		if ( 'type' === $postType ) {
+			$postType = '_aioseo_type';
+		}
 		if ( 'edit' === $screen || 'upload' === $screen ) {
 			if ( aioseo()->options->advanced->postTypes->all ) {
 				return true;

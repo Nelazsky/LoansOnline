@@ -1,15 +1,3 @@
-
-<!doctype html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="<?= bloginfo('template_directory'); ?>/css/newdesigned.css"/>
-</head>
-<body>
 <div class="top">
     <div class="top-wrapper container">
         <div class="top-left">
@@ -125,7 +113,12 @@
                         54 000 <div class="loan-sum-rub">руб</div>
                     </div>
                 </div>
-                <div class="loan-more d-flex justify-content-start">
+                <div class="loan-more  data-offer='<?php echo json_encode([
+                    "offer_logo" => $offer->offer_file_src,
+                    "offer_rating" => $offer->loan_rating,
+                    "offer_first_sum" => $offer->loan_first_sum,
+                    "offer_time" => $offer->loan_time,
+                ]) ?>'">
                     <a href="#">Подробнее ></a>
                 </div>
             </div>
@@ -213,92 +206,6 @@
                 </div>
                 <div class="loan-more d-flex justify-content-start">
                     Подробнее >
-                </div>
-            </div>
-            <button class="loan-button">Получить займ</button>
-
-        </div>
-        <div class="loan-item">
-            <div class="loan-body">
-                <div class="loan-top">
-                    <div class="loan_logo">
-                        <img src="img/credit1.jpg" alt="Лого">
-                    </div>
-                    <div class="loan_rating">
-                        <div class="loan_rating_stars">
-                            <div class="loan_rating_stars_icons" style="">
-                                <i class="icon_star"></i>
-                                <i class="icon_star"></i>
-                                <i class="icon_star"></i>
-                                <i class="icon_star"></i>
-                                <i class="icon_star"></i>
-                            </div>
-                            <div class="loan_rating_stars_icons_outline">
-                                <i class="icon_star_outline" ></i>
-                                <i class="icon_star_outline"></i>
-                                <i class="icon_star_outline"></i>
-                                <i class="icon_star_outline"></i>
-                                <i class="icon_star_outline"></i>
-                            </div>
-                        </div>
-                        <div class="loan_rating_text">
-                            (5.00)
-                        </div>
-                    </div>
-                </div>
-                <div class="loan-text d-flex justify-content-between">
-                    <div class="loan-sum-text">
-                        К выплате
-                    </div>
-                    <div class="loan-sum">
-                        54 000 <div class="loan-sum-rub">руб</div>
-                    </div>
-                </div>
-                <div class="loan-more d-flex justify-content-start">
-                    Подробнее >
-                </div>
-            </div>
-            <button class="loan-button">Получить займ</button>
-
-        </div>
-        <div class="loan-item">
-            <div class="loan-body">
-                <div class="loan-top">
-                    <div class="loan_logo">
-                        <img src="img/credit1.jpg" alt="Лого">
-                    </div>
-                    <div class="loan_rating">
-                        <div class="loan_rating_stars">
-                            <div class="loan_rating_stars_icons" style="">
-                                <i class="icon_star"></i>
-                                <i class="icon_star"></i>
-                                <i class="icon_star"></i>
-                                <i class="icon_star"></i>
-                                <i class="icon_star"></i>
-                            </div>
-                            <div class="loan_rating_stars_icons_outline">
-                                <i class="icon_star_outline" ></i>
-                                <i class="icon_star_outline"></i>
-                                <i class="icon_star_outline"></i>
-                                <i class="icon_star_outline"></i>
-                                <i class="icon_star_outline"></i>
-                            </div>
-                        </div>
-                        <div class="loan_rating_text">
-                            (5.00)
-                        </div>
-                    </div>
-                </div>
-                <div class="loan-text d-flex justify-content-between">
-                    <div class="loan-sum-text">
-                        К выплате
-                    </div>
-                    <div class="loan-sum">
-                        54 000 <div class="loan-sum-rub">руб</div>
-                    </div>
-                </div>
-                <div class="loan-more d-flex justify-content-start">
-                    <a href="#">Подробнее ></a>
                 </div>
             </div>
             <button class="loan-button">Получить займ</button>
@@ -345,7 +252,7 @@
         <div class="loan-body">
             <div class="loan-top">
                 <div class="loan_logo">
-                    <img src="img/credit1.jpg" alt="Лого">
+                    <img class="popup_img" src="img/credit1.jpg" alt="Лого">
                 </div>
                 <div class="loan_rating">
                     <div class="loan_rating_stars">
@@ -365,7 +272,7 @@
                         </div>
                     </div>
                     <div class="loan_rating_text">
-                        (5.00)
+                        <span class="popup_rating"></span>
                     </div>
                 </div>
             </div>
@@ -398,7 +305,7 @@
                     1-й кредит
                 </div>
                 <div class="loan-sum-little">
-                    3 000-80 000 <div class="loan-sum-rub">руб</div>
+                    <span class="popup_first_sum"></span> <div class="loan-sum-rub">руб</div>
                 </div>
             </div>
             <div class="loan-text d-flex justify-content-between">
@@ -414,7 +321,7 @@
                     Срок
                 </div>
                 <div class="loan-sum-little">
-                    1-365 <div class="loan-sum-rub">дней</div>
+                    <span class="popup_time"></span>  <div class="loan-sum-rub">дней</div>
                 </div>
             </div>
         </div>
