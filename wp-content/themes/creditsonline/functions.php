@@ -690,6 +690,25 @@ function offer_filtering()
                 )
             )
         );
+    }else if( $current_template == 'newdesigned.php' ){
+        $args = array(
+            'post_type' => 'offer',
+            'numberposts' => 50,
+            'category' => 0,
+            'orderby' => 'meta_value',
+            'order' => 'DESC',
+            'include' => array(),
+            'exclude' => array(),
+            'meta_key' => 'loan_rating',
+            'suppress_filters' => true,
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'region',
+                    'field' => 'slug',
+                    'terms' => array( 'newdesigned')
+                )
+            )
+        );
     }else{
         $args = array(
             'post_type' => 'offer',
@@ -714,11 +733,14 @@ function offer_filtering()
         $loan_sum = explode("-", get_field('loan_first_sum', $offer->ID));
 
         if ((int)$loan_time[0] <= (int)$offer_time and (int)$loan_time[1] >= (int)$offer_time and (int)$loan_sum[0] <= (int)$offer_sum and (int)$loan_sum[1] >= (int)$offer_sum) {
+
             if( $current_template == 'russia-page.php' ){
             include 'offer1.php';
-        }else{
-            include 'offer.php';
-        }
+            }else if( $current_template == 'newdesigned.php' ){
+                include 'newoffer.php';
+            }else{
+                include 'offer.php';
+            }
 
         } else {
             $bad_loans[] = $offer;
@@ -728,8 +750,10 @@ function offer_filtering()
     echo " <div class=\"unavailable\">Результаты, не соответствующие условиям первого кредита</div>";
 
     foreach ($bad_loans as $offer) {
-       if( $current_template == 'russia-page.php' ){
+        if( $current_template == 'russia-page.php' ){
             include 'offer1.php';
+        }else if( $current_template == 'newdesigned.php' ){
+            include 'newoffer.php';
         }else{
             include 'offer.php';
         }

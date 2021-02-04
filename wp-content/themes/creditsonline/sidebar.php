@@ -77,7 +77,8 @@
                     },
                     success: function (data) {
 
-                        $('.loan_wrapper').html(data)
+                        $('.loan_wrapper').html(data);
+                        $('.new-offers').html(data);
                     }
                 });
             }
@@ -166,5 +167,17 @@
             console.log(+time);
             updateOffer();
         });
+
+
+        //modal
+        $(document).on("click",".loan-more", function () {
+            var offerData = $(this).data('offer');
+            console.log(offerData);
+
+            $(".popup_img").attr("src", offerData.offer_logo);
+            $(".popup_rating").text( offerData.offer_rating);
+            $(".popup_first_sum").text( offerData.offer_first_sum);
+            $(".popup_time").text(offerData.offer_time);
+        })
     })
 </script>
