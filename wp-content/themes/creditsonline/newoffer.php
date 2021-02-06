@@ -1,17 +1,34 @@
-
-<div class="new-offer <?=$offer->feature? 'feature' : ''?>" <?=$offer->feature? 'style="border-color:'.$offer->loan_color.'"' : ''?>>
-    <?php if($offer->feature) { ?>
+<div class="new-offer <?= $offer->feature ? 'feature' : '' ?>" <?= $offer->feature ? 'style="border-color:' . $offer->loan_color . '"' : '' ?>>
+    <?php if ($offer->feature) { ?>
         <div class="new-offer_feature">
-        <span <?=$offer->feature? 'style="background-color:'.$offer->loan_color.'"' : ''?>>
+        <span <?= $offer->feature ? 'style="background-color:' . $offer->loan_color . '"' : '' ?>>
             <?php echo $offer->extra_text; ?>
         </span>
         </div>
     <?php } ?>
-    <div class="new-offer__inner">
-        <div class="new-offer_logo">
+    <div class="new-offer__inner"
+             data-offer='<?php echo json_encode([
+                "offer_feature" => $offer->feature,
+                "offer_color" => $offer->loan_color,
+                "offer_extra_tex" => $offer->extra_tex,
+                "offer_file_src" => $offer->offer_file_src,
+                "offer_rating" => $offer->loan_rating,
+                "offer_arp_first" => $offer->arp_first,
+                "offer_sum" => $offer->loan_sum,
+                "offer_first_sum" => $offer->loan_first_sum,
+                "offer_time" => $offer->loan_time,
+                "offer_url" => $offer->loan_url,
+                "payment" => $payment,
+                "commission" => $commission,
+                "sum" => $offer_sum,
+                "time" => $offer_time,
+            ]) ?>'
+    >
+        <div class="new-offer_logo ">
+
             <div class="new-offer_logo_con">
                 <img src="<?php echo $offer->offer_file_src; ?>" alt="Лого">
-            </div>
+            </div>`
             <div class="offer_rating">
                 <div class="offer_rating_stars">
                     <div class="offer_rating_stars_icons" style="width: <?= $offer->loan_rating * 20 ?>%">
@@ -30,7 +47,7 @@
                     </div>
                 </div>
                 <p class="offer_rating_text">
-                    (<?=$offer->loan_rating?>)
+                    (<?= $offer->loan_rating ?>)
                 </p>
             </div>
         </div>
@@ -38,58 +55,28 @@
             <div class="offer_info_con">
                 <div class="offer_money">
                     <div>
-                        <div class="label">К выплате</div>
+                        <b>К выплате</b>
                         <div class="value">
-                            <?=$offer_sum+($offer_sum * $offer_time * $offer->arp_first / 100 ) ?>
+                            <?php $payment = $offer_sum + ($offer_sum * $offer_time * $offer->arp_first / 100);
+                            echo $payment; ?>
                             <small> руб</small>
                         </div>
                     </div>
-                    <div>
-                        <div class="label">Сумма займа</div>
-                        <div class="value">
-                            <?=$offer_sum ?>
-                            <small> руб</small>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="label">Комиссия <span
-                                    class="fee_days"><?php echo $offer->loan_time; ?></span> дн
-                        </div>
-                        <div class="value">
-                            <?= $offer_sum * $offer_time * $offer->arp_first / 100 ?>
-                            <small> руб</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="offer_conditions">
-                    <div>
-                        <div class="label">1й кредит</div>
-                        <div class="value">
-                            <?php echo $offer->loan_first_sum; ?>
-                            <small>руб</small>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="label">Ставка</div>
-                        <div class="value">
-                            <?php echo $offer->arp_first; ?>
-                            <small> %</small>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="label">Срок</div>
-                        <div class="value">
-                            <?php echo $offer->loan_time; ?>
-                            <small> дней</small>
-                        </div>
-                    </div>
+                    <?php
+                    $offer_sum;
+                    $commission = $offer_sum * $offer_time * $offer->arp_first / 100;
+                    $offer->loan_first_sum;
+                    $offer->arp_first;
+                    $offer->loan_time;
+                    ?>
                 </div>
             </div>
         </div>
-
-        <div class="offer_open">
-            <a href="<?php echo $offer->loan_url; ?>" target="_blank" class="btn primary_btn">Оформить
-                заявку</a>
-        </div>
+    </div>
+    <div class="new-btn">
+        <a href="<?php echo $offer->loan_url; ?>" target="_blank" class="new-btn__text">Оформить
+            заявку</a>
     </div>
 </div>
+
+

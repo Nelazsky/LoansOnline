@@ -170,14 +170,26 @@
 
 
         //modal
-        $(document).on("click",".loan-more", function () {
+        $(document).on("click",".new-offer__inner", function () {
             var offerData = $(this).data('offer');
             console.log(offerData);
 
-            $(".popup_img").attr("src", offerData.offer_logo);
-            $(".popup_rating").text( offerData.offer_rating);
-            $(".popup_first_sum").text( offerData.offer_first_sum);
+            $(".new-popup__logo").attr("src", offerData.offer_file_src);
+            $(".new-popup__rating").text( offerData.offer_rating);
+            $(".new-popup__payment").text( offerData.payment);
             $(".popup_time").text(offerData.offer_time);
         })
+        //     "offer_feature" => $offer->feature,
+        //            "offer_color" => $offer->loan_color,
+        //            "offer_extra_tex" => $offer->extra_tex,
+        //            "offer_file_src" => $offer->offer_file_src,
+        //            "offer_rating" => $offer->loan_rating,
+        //            "offer_arp_first" => $offer->arp_first,
+        //            "offer_sum" => $offer->loan_sum,
+        //            "offer_first_sum" => $offer->loan_first_sum,
+        //            "offer_time" => $offer->loan_time,
+        //            "offer_url" => $offer->loan_url,
+        //            "payment" => $payment,
+        //            "commission" => $commission,
     })
 </script>
