@@ -70,6 +70,7 @@
                     $offer->loan_time;
                     ?>
                 </div>
+                <a class="myLinkModal" href="#">Анкор_ссылки</a>
             </div>
         </div>
     </div>

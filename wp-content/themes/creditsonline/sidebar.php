@@ -170,7 +170,7 @@
 
 
         //modal
-        $(document).on("click",".new-offer__inner", function () {
+        $(document).on("click",".new-offer__inner", function (event) {
             var offerData = $(this).data('offer');
             console.log(offerData);
 
@@ -178,7 +178,24 @@
             $(".new-popup__rating").text( offerData.offer_rating);
             $(".new-popup__payment").text( offerData.payment);
             $(".popup_time").text(offerData.offer_time);
+            $(".new-btn__text").attr("href", offerData.offer_url);
+
+            event.preventDefault();
+            $('#popupOverlay').fadeIn(297,	function(){
+                $('#newOfferPopup')
+                    .css('display', 'block')
+                    .animate({opacity: 1}, 198);
+            });
+
         })
+
+        $('#popupClose, #popupOverlay').click( function(){
+            $('#newOfferPopup').animate({opacity: 0}, 198, function(){
+                $(this).css('display', 'none');
+                $('#popupOverlay').fadeOut(297);
+            });
+        });
+
         //     "offer_feature" => $offer->feature,
         //            "offer_color" => $offer->loan_color,
         //            "offer_extra_tex" => $offer->extra_tex,

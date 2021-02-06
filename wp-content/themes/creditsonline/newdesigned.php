@@ -75,8 +75,12 @@ get_header();
         </div>
     </div>
 
-<div class="new-popup">
-    <div class="new-offer__popup">
+
+
+
+
+    <div class="new-offer__popup" id="newOfferPopup">
+        <span id="myModal__close" class="close">ₓ</span>
         <div class="new-offer__body">
             <div class="new-offer__top">
                 <div class="new-offer__logo">
@@ -153,8 +157,8 @@ get_header();
                 </div>
             </div>
         </div>
-        <button class="offer-button">Получить займ</button>
-
+        <button class="offer-button"><a href="#" target="_blank" class="new-btn__text">Оформить заявку</a>
+        </button>
     </div>
-</div>
+<div id="popupOverlay"></div>
     <?php get_footer() ?>
